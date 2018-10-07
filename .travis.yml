@@ -1,11 +1,7 @@
-language: ruby
-branches:
-  only:
-  - master
-rvm:
-- 2.2.3
-before_script:
- - chmod +x ./scripts/cibuild
-script: ./scripts/cibuild
-exclude: [vendor]
-sudo: false
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  keep-history: true
+  on:
+    branch: master
